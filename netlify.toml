@@ -1,0 +1,10 @@
+# React + TypeScript + Vite (per README). The app's source files (package.json,
+# src/, vite.config.ts, ...) are not in the repository yet. Until they are pushed,
+# the build publishes a small placeholder page instead of failing. Once
+# package.json exists, the normal Vite build (`npm run build` -> dist) runs.
+[build]
+  command = '''if [ -f package.json ]; then npm run build; else echo "No package.json found; publishing placeholder page" && mkdir -p dist && printf '%s\n' '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Portfolio</title></head><body style="font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;margin:0"><p>Portfolio coming soon.</p></body></html>' > dist/index.html; fi'''
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"
